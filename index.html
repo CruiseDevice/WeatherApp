@@ -5,9 +5,12 @@
     <title>WeatherApp</title>
       </head>
   <body ng-app = "weatherApp">
-    <div ng-controller = "weatherAppController">
+    <div ng-controller = "weatherAppController as vm">
       <center><h1>{{mainTitle}}</h1><center>
       <center><h2>{{title}}</h2></center>
+
+      {{ vm.data | json }}
+
       <center>{{inspiredBy}}<center>
     </div>
   </body>
@@ -18,6 +21,7 @@
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+
 
 
   <script src = "js/app.js">
