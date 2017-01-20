@@ -49,7 +49,7 @@ function getWeather(data_url){
       //var tempincelsius = data.main.temp - 273.15;
       $cityname.append(data.name);
       $cityname.append(', '+data.sys.country);
-      $temperature.append(data.main.temp);
+      $temperature.append(data.main.temp+'&#8451;');
       data.weather.forEach(function(val){
         $weatherstate.append(val.main);
         //$weatherstate.append(val.icon);
