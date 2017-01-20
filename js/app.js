@@ -5,6 +5,7 @@ $(function geolocation(){
     $("#weather").html("Geolocation is not supported by this browser.");
   }
 });
+
 function getcoordinates(position){
   var lat = position.coords.latitude;
   var lon = position.coords.longitude;
@@ -15,6 +16,7 @@ function getcoordinates(position){
   var CurrentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid="+appid;
   getWeather(CurrentWeatherURL);
 }
+
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -33,26 +35,13 @@ function showError(error) {
 }
 function getWeather(data_url){
   console.log(data_url);
-  // $.ajax({
-  //   url:data_url,
-  //   type:'GET',
-  //   cache:false,
-  //   dataType:'jsonp',
-  //   success:function(data){
-  //     localStorage.weatherCache = JSON.stringify(data);
-  //     displayData();
-  //   },
-  //   error:function(errorData){
-  //     $("#weather").html("Error retrieving current weather data:: "+errorData);
-  //   }
-  // });
+
   var $body = $('body');
   var $cityname = $('#city-name');
   var $temperature = $('.temperature');
   var $weatherstate = $('.weather-state');
 
   $.getJSON(data_url, function(data) {
-      /*optional stuff to do after success */
       // var html = "";
       console.log(data);
       console.log(data.main.temp);
@@ -67,11 +56,3 @@ function getWeather(data_url){
       });
   });
 }
-// function displayData(){
-//   try{
-//     var data = JSON.parse(localStorage.WeatherCache);
-//     $("#city-name").html(data.name);
-//   }catch(error){
-//     window.console && console.error(error);
-//   }
-// }
