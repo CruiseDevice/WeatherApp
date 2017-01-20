@@ -10,9 +10,9 @@ function getcoordinates(position){
   var lon = position.coords.longitude;
   console.log(lat);
   console.log(lon);
-  var units=localStorage.getItem("Units");
+  //var units=localStorage.getItem("Units");
   var appid = "3f35e5fa08d3ede85124dd3e64acbe1a"
-  var CurrentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units="+units+"&appid="+appid;
+  var CurrentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid="+appid;
   getWeather(CurrentWeatherURL);
 }
 function showError(error) {
@@ -46,20 +46,25 @@ function getWeather(data_url){
   //     $("#weather").html("Error retrieving current weather data:: "+errorData);
   //   }
   // });
-  $.getJSON(data_url, function(json) {
+  var $body = $('body');
+  var $cityname = $('#city-name');
+  var $temperature = $('.temperature');
+  var $weatherstate = $('.weather-state');
+
+  $.getJSON(data_url, function(data) {
       /*optional stuff to do after success */
-      var html = "";
-      console.log(json);
-
-      json = json.filter(function(val){
-        return(val.id!==1);
+      // var html = "";
+      console.log(data);
+      console.log(data.main.temp);
+      //console.log(data.weather.main);
+      //var tempincelsius = data.main.temp - 273.15;
+      $cityname.append(data.name);
+      $cityname.append(', '+data.sys.country);
+      $temperature.append(data.main.temp);
+      data.weather.forEach(function(val){
+        $weatherstate.append(val.main);
+        //$weatherstate.append(val.icon);
       });
-
-      // for looping through json content
-      json.forEach(function(val){
-        var cityname = val.name;
-      });
-
   });
 }
 // function displayData(){
