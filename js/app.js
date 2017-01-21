@@ -40,7 +40,7 @@ function getWeather(data_url){
   var $cityname = $('#city-name');
   var $temperature = $('.temperature');
   var $weatherstate = $('.weather-state');
-
+  var $header  = $('.header');
   $.getJSON(data_url, function(data) {
       // var html = "";
       console.log(data);
@@ -54,5 +54,7 @@ function getWeather(data_url){
         $weatherstate.append(val.main);
         //$weatherstate.append(val.icon);
       });
-  });
+  }).error(function(e) {
+    $header.text('Sorry Content could not be Loaded. Please check you computer is connected to internet.');
+  });;
 }
