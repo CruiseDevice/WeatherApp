@@ -1,19 +1,28 @@
 $(function geolocation(){
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(getcoordinates,showError);
-  }else{
-    $("#weather").html("Geolocation is not supported by this browser.");
-  }
+  // if(navigator.geolocation){
+  //   navigator.geolocation.getCurrentPosition(getcoordinates,showError);
+  // }else{
+  //   $("#weather").html("Geolocation is not supported by this browser.");
+  // }
+  $(document).ready(function () {
+    $.getJSON("http://ipinfo.io?", function (data) {
+        console.log(data);
+        //alert(data.ip);
+        getcoordinates(data);
+    });
+});
 });
 
 function getcoordinates(position){
-  var lat = position.coords.latitude;
-  var lon = position.coords.longitude;
-  console.log(lat);
-  console.log(lon);
+  // var lat = position.coords.latitude;
+  // var lon = position.coords.longitude;
+  var cityNameFromIp = position.city;
+  var countryNameFromIp = position.country;
+  // console.log(lat);
+  // console.log(lon);
   //var units=localStorage.getItem("Units");
   var appid = "3f35e5fa08d3ede85124dd3e64acbe1a"
-  var CurrentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid="+appid;
+  var  CurrentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityNameFromIp+"&units=metric&appid="+appid;
   getWeather(CurrentWeatherURL);
 }
 
