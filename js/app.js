@@ -50,11 +50,13 @@ function getWeather(data_url){
       $cityname.append(data.name);
       $cityname.append(', '+data.sys.country);
       $temperature.append(data.main.temp+'&#8451;');
+
       data.weather.forEach(function(val){
         $weatherstate.append(val.main);
         //$weatherstate.append(val.icon);
       });
-  }).error(function(e) {
-    $header.text('Sorry Content could not be Loaded. Please check you computer is connected to internet.');
-  });;
+      
+  }).error(function(e){
+      $header.text('New York Times Articles Could Not Be loaded');
+    });
 }
