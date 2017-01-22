@@ -1,9 +1,4 @@
 $(function geolocation(){
-  // if(navigator.geolocation){
-  //   navigator.geolocation.getCurrentPosition(getcoordinates,showError);
-  // }else{
-  //   $("#weather").html("Geolocation is not supported by this browser.");
-  // }
   $(document).ready(function () {
     $.getJSON("http://ipinfo.io?", function (data) {
         console.log(data);
@@ -14,13 +9,8 @@ $(function geolocation(){
 });
 
 function getcoordinates(position){
-  // var lat = position.coords.latitude;
-  // var lon = position.coords.longitude;
   var cityNameFromIp = position.city;
   var countryNameFromIp = position.country;
-  // console.log(lat);
-  // console.log(lon);
-  //var units=localStorage.getItem("Units");
   var appid = "3f35e5fa08d3ede85124dd3e64acbe1a"
   var  CurrentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?q="+cityNameFromIp+"&units=metric&appid="+appid;
   getWeather(CurrentWeatherURL);
@@ -51,13 +41,11 @@ function getWeather(data_url){
   var $weatherstate = $('.weather-state');
   var $header  = $('.header');
   $.getJSON(data_url, function(data) {
-      // var html = "";
       console.log(data);
       console.log(data.main.temp);
-      //console.log(data.weather.main);
-      //var tempincelsius = data.main.temp - 273.15;
       $cityname.append(data.name);
       $cityname.append(', '+data.sys.country);
+      // TODO: I can push a button to toggle between Fahrenheit and Celsius.
       $temperature.append(data.main.temp+'&#8451;');
 
       data.weather.forEach(function(val){
@@ -65,7 +53,8 @@ function getWeather(data_url){
         //$weatherstate.append(val.icon);
       });
 
-   })
+   });
+   // TODO: Fix $.getJSON error handling code.
   //  .error(function(e){
   //     $header.text('New York Times Articles Could Not Be loaded');
   // });
