@@ -55,8 +55,9 @@ function getWeather(data_url){
         $weatherstate.append(val.main);
         //$weatherstate.append(val.icon);
       });
-      
-  }).error(function(e){
-      $header.text('New York Times Articles Could Not Be loaded');
-    });
+
+   })
+  //  .error(function(e){
+  //     $header.text('New York Times Articles Could Not Be loaded');
+  // });
 }
