@@ -51,11 +51,58 @@ function getWeather(data_url){
       data.weather.forEach(function(val){
         $weatherstate.append(val.main);
         //$weatherstate.append(val.icon);
+        weather_id = val.id;
+        console.log(weather_id);
+        seticon(weather_id);
       });
-
    });
-   // TODO: Fix $.getJSON error handling code.
-  //  .error(function(e){
-  //     $header.text('New York Times Articles Could Not Be loaded');
-  // });
+}
+function seticon(weather_id){
+  // console.log(weather_id);
+  switch(weather_id){
+    case 800:
+      $('.weather-icons').html('<div class = "icon sunny">'+
+      '<div class = "sun">'+
+      '<div class = "rays">'+'</div></div></div>');
+      break;
+    case 500:
+      $('.weather-icons').html('<div class = "icon sun-shower">'+
+      '<div class = "cloud"></div>'+
+      '<div class = "sun"><div class = "rays"></div></div>'+
+      '<div class = "rain">'+'</div></div>');
+      break;
+    case 200:
+      $('.weather-icons').html('<div class="icon thunder-storm">'+
+                                  '<div class="cloud"></div>'+
+                                  '<div class="lightning">'+
+                                  '<div class="bolt"></div>'+
+                                  '<div class="bolt"></div>'+
+                                  '</div>'+
+                              '</div>');
+      break;
+
+    case 801:
+      $('.weather-icons').html('<div class="icon cloudy">'+
+                                  '<div class="cloud"></div>'+
+                                  '<div class="cloud"></div>'+
+                              '</div>');
+      break;
+
+    case 600:
+      $('.weather-icons').html('<div class="icon flurries">'+
+                                  '<div class="cloud"></div>'+
+                                  '<div class="snow">'+
+                                    '<div class="flake"></div>'+
+                                    '<div class="flake"></div>'+
+                                  '</div>'+
+                                '</div>');
+      break;
+
+    case 500:
+      $('weather-icons').html('<div class="icon rainy">'+
+                                '<div class="cloud"></div>'+
+                                '<div class="rain"></div>'+
+                              '</div>');
+      break;
+  }
 }
