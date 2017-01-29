@@ -61,13 +61,13 @@ function seticon(weather_id){
   // console.log(weather_id);
   switch(weather_id){
     case 800:
-      $('.weather-icons').html('<div class = "icon sunny">'+
-      '<div class = "sun">'+
-      '<div class = "rays">'+'</div></div></div>');
+      $('.weather-icons').html('<div class = "icon sunny">'                             +
+                                  '<div class = "sun">'                                 +
+                                  '<div class = "rays">'+'</div></div></div>');
       break;
     case 500:
       $('.weather-icons').html('<div class = "icon sun-shower">'                        +
-                                  '<div class = "cloud"></div>'                         +
+                                  '<div class = "cloud"></div>'+
                                   '<div class = "sun"><div class = "rays"></div></div>' +
                                   '<div class = "rain">'+'</div></div>');
       break;
@@ -81,7 +81,7 @@ function seticon(weather_id){
                               '</div>');
       break;
 
-    case 801:
+    case 804:
       $('.weather-icons').html('<div class="icon cloudy">'                              +
                                   '<div class="cloud"></div>'                           +
                                   '<div class="cloud"></div>'                           +
