@@ -66,42 +66,42 @@ function seticon(weather_id){
       '<div class = "rays">'+'</div></div></div>');
       break;
     case 500:
-      $('.weather-icons').html('<div class = "icon sun-shower">'+
-      '<div class = "cloud"></div>'+
-      '<div class = "sun"><div class = "rays"></div></div>'+
-      '<div class = "rain">'+'</div></div>');
+      $('.weather-icons').html('<div class = "icon sun-shower">'                        +
+                                  '<div class = "cloud"></div>'                         +
+                                  '<div class = "sun"><div class = "rays"></div></div>' +
+                                  '<div class = "rain">'+'</div></div>');
       break;
     case 200:
-      $('.weather-icons').html('<div class="icon thunder-storm">'+
-                                  '<div class="cloud"></div>'+
-                                  '<div class="lightning">'+
-                                  '<div class="bolt"></div>'+
-                                  '<div class="bolt"></div>'+
-                                  '</div>'+
+      $('.weather-icons').html('<div class="icon thunder-storm">'                       +
+                                  '<div class="cloud"></div>'                           +
+                                  '<div class="lightning">'                             +
+                                  '<div class="bolt"></div>'                            +
+                                  '<div class="bolt"></div>'                            +
+                                  '</div>'                                              +
                               '</div>');
       break;
 
     case 801:
-      $('.weather-icons').html('<div class="icon cloudy">'+
-                                  '<div class="cloud"></div>'+
-                                  '<div class="cloud"></div>'+
+      $('.weather-icons').html('<div class="icon cloudy">'                              +
+                                  '<div class="cloud"></div>'                           +
+                                  '<div class="cloud"></div>'                           +
                               '</div>');
       break;
 
     case 600:
-      $('.weather-icons').html('<div class="icon flurries">'+
-                                  '<div class="cloud"></div>'+
-                                  '<div class="snow">'+
-                                    '<div class="flake"></div>'+
-                                    '<div class="flake"></div>'+
-                                  '</div>'+
+      $('.weather-icons').html('<div class="icon flurries">'                            +
+                                  '<div class="cloud"></div>'                           +
+                                  '<div class="snow">'                                  +
+                                    '<div class="flake"></div>'                         +
+                                    '<div class="flake"></div>'                         +
+                                  '</div>'                                              +
                                 '</div>');
       break;
 
     case 500:
-      $('weather-icons').html('<div class="icon rainy">'+
-                                '<div class="cloud"></div>'+
-                                '<div class="rain"></div>'+
+      $('weather-icons').html('<div class="icon rainy">'                                +
+                                '<div class="cloud"></div>'                             +
+                                '<div class="rain"></div>'                              +
                               '</div>');
       break;
   }
