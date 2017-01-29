@@ -54,6 +54,7 @@ function getWeather(data_url){
         weather_id = val.id;
         console.log(weather_id);
         seticon(weather_id);
+        // setbackground(weather_id);
       });
    });
 }
